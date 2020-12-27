@@ -15,7 +15,7 @@ sub decoratedBranch($branchSize) {
             $res ~= 'O';
         } else {
             $res ~= 'x';
-        };
+        }
     }
     $res
 }
