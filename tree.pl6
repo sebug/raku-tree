@@ -20,15 +20,14 @@ sub decoratedBranch(Int $branchSize) returns Str {
     map(-> $i { tile() }, 1 .. $branchSize).join('')
 }
 
-
-sub branch(Int $i) returns Str {
+sub branchLine(Int $i) returns Str {
     " " x ($size - $i) ~ decoratedBranch($i * 2 + 1)
 }
 
 say $tip;
 
 for 0 ..^ $size -> $i {
-    say branch($i);
+    say branchLine($i);
 }
 
 say $trunk;
