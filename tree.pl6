@@ -8,16 +8,16 @@ sub isOrnament() returns Bool {
     10.rand < 3
 }
 
-sub decoratedBranch(Int $branchSize) returns Str {
-    my Str $res = '';
-    for 1 .. $branchSize {
-        if isOrnament() {
-            $res ~= 'O';
-        } else {
-            $res ~= 'x';
-        }
+sub tile() returns Str {
+    if isOrnament() {
+        'O'
+    } else {
+        'x'
     }
-    $res
+}
+
+sub decoratedBranch(Int $branchSize) returns Str {
+    map(-> $i { tile() }, 1 .. $branchSize).join('')
 }
 
 
