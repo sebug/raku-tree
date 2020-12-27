@@ -27,7 +27,7 @@ sub branch(Int $i) {
 
 say $tip;
 
-for 0 .. ($size - 1) -> $i {
+for 0 ..^ $size -> $i {
     say branch($i);
 }
 
