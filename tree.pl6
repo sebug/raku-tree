@@ -4,9 +4,25 @@ my Int $size = 8;
 my Str $tip = " " x $size ~ "+";
 my Str $trunk = " " x ($size - 1) ~ "|||";
 
+sub isOrnament() {
+    10.rand < 3
+}
+
+sub decoratedBranch($branchSize) {
+    my Str $res = '';
+    for 1 .. $branchSize {
+        if isOrnament() {
+            $res ~= 'O';
+        } else {
+            $res ~= 'x';
+        };
+    }
+    $res
+}
+
 
 sub branch(Int $i) {
-    " " x ($size - $i) ~ "x" x ($i * 2 + 1)
+    " " x ($size - $i) ~ decoratedBranch($i * 2 + 1)
 }
 
 say $tip;
